@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:tarik_test/widgets/phone_call.dart';
+import 'package:tarik_test/widgets/view_member.dart';
 
 // Controller (Handles logic and state)
 class MemberController extends GetxController {
@@ -23,8 +24,8 @@ class MemberController extends GetxController {
     update();
   }
 
-  void viewMember(Map<String, String> member) {
-    // Handle view action
+  void viewMemberDetails(Map<String, String> member, BuildContext context) {
+    viewMember(member, context);
   }
 
   void deleteMember(Map<String, String> member) {
@@ -200,7 +201,8 @@ class MemberList extends StatelessWidget {
                         mainAxisSize: MainAxisSize.min,
                         children: [
                           GestureDetector(
-                            onTap: () => controller.viewMember(member),
+                            onTap: () =>
+                                controller.viewMemberDetails(member, context),
                             child: Container(
                               padding: const EdgeInsets.symmetric(
                                   horizontal: 6, vertical: 4),
