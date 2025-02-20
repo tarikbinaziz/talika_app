@@ -13,10 +13,10 @@ class MemberController extends GetxController {
   final divisions = ['ঢাকা', 'চট্টগ্রাম', 'খুলনা', 'রাজশাহী'];
 
   final memberList = [
-    {'name': 'আব্দুল জব্বার', 'division': 'ঢাকা'},
-    {'name': 'আব্দুল জব্বার', 'division': 'ঢাকা'},
-    {'name': 'আব্দুল জব্বার', 'division': 'ঢাকা'},
-    {'name': 'আব্দুল জব্বার', 'division': 'ঢাকা'},
+    {'name': 'আব্দুল জব্বার', 'division': 'ঢাকা', 'phone': '0123456789'},
+    {'name': 'মোঃ হাসান', 'division': 'চট্টগ্রাম', 'phone': '01712345678'},
+    {'name': 'রহিম উদ্দিন', 'division': 'সিলেট', 'phone': '01898765432'},
+    {'name': 'করিম আলী', 'division': 'খুলনা', 'phone': '01987654321'},
   ].obs;
 
   void searchMembers() {
@@ -33,8 +33,8 @@ class MemberController extends GetxController {
     update();
   }
 
-  void phoneCall() {
-    makePhoneCall("01700000000");
+  void phoneCall(String phoneNumber) {
+    makePhoneCall(phoneNumber);
   }
 }
 
@@ -219,7 +219,8 @@ class MemberList extends StatelessWidget {
                           ),
                           const SizedBox(width: 4),
                           GestureDetector(
-                            onTap: () => controller.phoneCall(),
+                            onTap: () =>
+                                controller.phoneCall(member['phone'] ?? ''),
                             child: Container(
                               padding: const EdgeInsets.symmetric(
                                   horizontal: 6, vertical: 4),
