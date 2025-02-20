@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:tarik_test/controller/member_controller.dart';
+import 'package:tarik_test/widgets/left_drawer.dart';
 import 'package:tarik_test/widgets/member_list.dart';
 
 class MemberView extends StatelessWidget {
@@ -11,9 +12,14 @@ class MemberView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: CustomDrawer(),
       appBar: AppBar(
         centerTitle: true,
-        leading: const Icon(Icons.menu),
+        // leading: GestureDetector(
+        //     onTap: () {
+        //       Scaffold.of(context).openDrawer();
+        //     },
+        //     child: const Icon(Icons.menu)),
         title: const Text('সদস্য', style: TextStyle(fontSize: 18)),
         backgroundColor: Colors.teal,
         actions: [
