@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:tarik_test/widgets/phone_call.dart';
 
 // Controller (Handles logic and state)
 class MemberController extends GetxController {
@@ -29,6 +30,10 @@ class MemberController extends GetxController {
   void deleteMember(Map<String, String> member) {
     memberList.remove(member);
     update();
+  }
+
+  void phoneCall() {
+    makePhoneCall("01700000000");
   }
 }
 
@@ -212,7 +217,7 @@ class MemberList extends StatelessWidget {
                           ),
                           const SizedBox(width: 4),
                           GestureDetector(
-                            onTap: () => controller.deleteMember(member),
+                            onTap: () => controller.phoneCall(),
                             child: Container(
                               padding: const EdgeInsets.symmetric(
                                   horizontal: 6, vertical: 4),
